@@ -5,15 +5,15 @@ import { GlowingEffect } from "./ui/glowing-effect"
 export const CreditCard = () => {
   return (
     <>
-    <section className="bg-[#0B1425] overflow-hidden pt-12 pb-8 rounded-b-[48px] lg:rounded-b-[64px]">
+    <section className="bg-[#0B1425] overflow-hidden pt-12 pb-8 rounded-b-[32px] md:rounded-b-[48px] lg:rounded-b-[64px]">
       {/* Top Header Section remains as per previous context */}
-      <div className="container mx-auto px-6 mb-16">
+      <div className="container mx-auto px-4 md:px-6 mb-12 md:mb-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-primary text-sm font-bold tracking-widest uppercase mb-4 block"
+            className="text-primary text-xs sm:text-sm font-bold tracking-widest uppercase mb-3 md:mb-4 block"
           >
             The Ultimate Crypto Card
           </motion.span>
@@ -22,24 +22,24 @@ export const CreditCard = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold font-outfit mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold font-outfit mb-4 md:mb-6 leading-tight"
           >
-            The Only Card <br />
+            The Only Card <br className="hidden sm:block" />
             <span className="text-white/40">You Need.</span>
           </motion.h2>
         </div>
       </div>
 
       {/* Video Content based on Inspector Screenshot */}
-      <div className="mx-auto w-full px-8 lg:py-16 py-8 translate-y-0 opacity-100">
-        <div className="w-full max-w-[1280px] min-w-[1128px] mx-auto px-4 py-8">
+      <div className="mx-auto w-full px-4 sm:px-8 lg:py-16 py-8 translate-y-0 opacity-100">
+        <div className="w-full max-w-[1280px] mx-auto py-4 md:py-8">
           <a className="block w-full" href="#">
             <div className="flex flex-col items-center gap-[26px] lg:gap-8">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="group rounded-3xl relative z-10 flex h-[505px] w-full max-w-[1280px] overflow-hidden lg:h-[660px]"
+                className="group rounded-2xl md:rounded-3xl relative z-10 flex h-[350px] sm:h-[400px] md:h-[505px] w-full max-w-[1280px] overflow-hidden lg:h-[660px]"
               >
                 <video
                   src="https://mkt-static.crypto.com/us-credit-card-video.mp4"
@@ -51,17 +51,17 @@ export const CreditCard = () => {
                 />
                 
                 {/* Visual Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 sm:from-black/60 via-black/30 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 sm:from-black/40 via-transparent to-transparent z-10 hidden sm:block" />
                 
                 {/* Content Overlay */}
-                <div className="flex relative z-20 h-full w-full flex-col items-start gap-4 p-8 lg:flex-row lg:items-end justify-between">
+                <div className="flex relative z-20 h-full w-full flex-col items-start gap-4 p-6 sm:p-8 justify-end lg:flex-row lg:items-end lg:justify-between">
                   <div className="max-w-2xl">
                     <motion.h3 
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 0.3 }}
-                      className="text-3xl md:text-5xl font-bold text-white mb-4"
+                      className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-4"
                     >
                       Visa Card
                     </motion.h3>
@@ -69,17 +69,17 @@ export const CreditCard = () => {
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 0.4 }}
-                      className="text-white/70 text-xl md:text-2xl"
+                      className="text-white/70 text-sm sm:text-xl md:text-2xl mb-4 lg:mb-0 max-w-[80%] sm:max-w-full"
                     >
                       Get up to 5% in CRO rewards on all purchases
                     </motion.p>
                   </div>
                   
                   <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, lg: { x: 20 }, sm: { y: 20 } }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="px-8 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-white font-semibold transition-all flex items-center gap-2 whitespace-nowrap"
+                    className="px-6 sm:px-8 py-2 sm:py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-white font-semibold transition-all flex items-center gap-2 whitespace-nowrap text-sm sm:text-base w-fit"
                   >
                     Choose your card <span>→</span>
                   </motion.div>
@@ -93,8 +93,8 @@ export const CreditCard = () => {
 
     <section className="bg-[#050505] overflow-hidden">
       {/* Feature Grid based on Screenshot Structure */}
-      <div className="container mx-auto px-6 py-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
           {[
             { label: "Cashback", value: "8%" },
             { label: "Annual fee", value: "$0" },
@@ -107,9 +107,10 @@ export const CreditCard = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
               viewport={{ once: true }}
+              className="flex flex-col items-center justify-center p-2"
             >
-              <div className="text-3xl md:text-4xl font-bold font-outfit mb-2">{feature.value}</div>
-              <div className="text-sm md:text-base text-white/50 uppercase tracking-[0.2em] font-medium">{feature.label}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-outfit mb-1 md:mb-2">{feature.value}</div>
+              <div className="text-[10px] sm:text-xs md:text-base text-white/50 uppercase tracking-[0.1em] md:tracking-[0.2em] font-medium whitespace-nowrap">{feature.label}</div>
             </motion.div>
           ))}
         </div>

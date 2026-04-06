@@ -47,7 +47,7 @@ const AreaChart = ({ path, color, isNegative }) => {
   const strokeColor = isNegative ? "#ef4444" : "#22c55e"
   
   return (
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-32 overflow-visible">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-24 sm:h-32 overflow-visible">
       <defs>
         <linearGradient id={chartId} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor={strokeColor} stopOpacity="0.3" />
@@ -80,17 +80,17 @@ const AreaChart = ({ path, color, isNegative }) => {
 
 export const LivePrices = () => {
   return (
-    <section className="py-24 overflow-hidden" style={{ background: "linear-gradient(0deg, rgb(240, 245, 255) 0%, rgb(51, 81, 123) 28.86%, rgb(19, 26, 42) 59.87%, rgb(8, 13, 27) 89.59%)" }}>
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="py-16 md:py-24 overflow-hidden" style={{ background: "linear-gradient(0deg, rgb(240, 245, 255) 0%, rgb(51, 81, 123) 28.86%, rgb(19, 26, 42) 59.87%, rgb(8, 13, 27) 89.59%)" }}>
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold font-outfit max-w-4xl mx-auto mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold font-outfit max-w-4xl mx-auto mb-4 md:mb-6 leading-tight px-2"
           >
-            Stay up-to-date with live crypto prices, <br />
+            Stay up-to-date with live crypto prices, <br className="hidden sm:block" />
             market cap movement, and trending tokens
           </motion.h2>
           <motion.a
@@ -98,29 +98,27 @@ export const LivePrices = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-primary hover:text-primary/80 transition-colors flex items-center justify-center gap-2 group"
+            className="text-primary hover:text-primary/80 transition-colors flex items-center justify-center gap-2 group text-sm sm:text-base"
           >
             View Live Prices
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </motion.a>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-          <div className="flex bg-white/5 rounded-full p-1 self-start">
-            <button className="px-6 py-2 rounded-full bg-primary text-sm font-medium flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+          <div className="flex bg-white/5 rounded-full p-1 whitespace-nowrap">
+            <button className="px-5 sm:px-6 py-2 rounded-full bg-primary text-xs sm:text-sm font-medium flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
               Trending
             </button>
-            <button className="px-6 py-2 rounded-full text-white/50 hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 opacity-0" />
+            <button className="px-5 sm:px-6 py-2 rounded-full text-white/50 hover:text-white text-xs sm:text-sm font-medium transition-colors flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 opacity-0 hidden sm:block" />
               Top Movers
             </button>
           </div>
-          
-
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {coins.map((coin, idx) => (
             <motion.div
               key={idx}
@@ -130,14 +128,14 @@ export const LivePrices = () => {
               viewport={{ once: true }}
             >
               <GlowingEffect glowColor={coin.color} className="h-full">
-                <div className="p-8 h-full bg-[#111828]/50 flex flex-col relative overflow-hidden group">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-white/5 flex items-center justify-center">
-                      <img src={coin.icon} alt={coin.name} className="w-8 h-8 object-contain" />
+                <div className="p-6 md:p-8 h-full bg-[#111828]/50 flex flex-col relative overflow-hidden group">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-6 md:mb-8">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white/5 flex items-center justify-center shrink-0">
+                      <img src={coin.icon} alt={coin.name} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold font-outfit leading-tight">{coin.name}</h3>
-                      <p className="text-white/40 text-xs uppercase tracking-wider">{coin.symbol}</p>
+                      <h3 className="text-lg md:text-xl font-bold font-outfit leading-tight">{coin.name}</h3>
+                      <p className="text-white/40 text-[10px] sm:text-xs uppercase tracking-wider">{coin.symbol}</p>
                     </div>
                   </div>
 
@@ -149,21 +147,21 @@ export const LivePrices = () => {
                     />
                   </div>
 
-                  <div className="mt-8 flex items-end justify-between">
+                  <div className="mt-6 md:mt-8 flex flex-wrap items-end justify-between gap-4">
                     <div className="space-y-1">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-2xl font-bold font-outfit">{coin.price}</span>
-                        <span className="text-[10px] text-white/40 font-medium">USD</span>
+                         <span className="text-xl md:text-2xl font-bold font-outfit">{coin.price}</span>
+                         <span className="text-[10px] text-white/40 font-medium">USD</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className={coin.change.startsWith("-") ? "text-red-500" : "text-green-500 font-medium"}>
+                         <span className={coin.change.startsWith("-") ? "text-red-500 text-sm font-medium" : "text-green-500 text-sm font-medium"}>
                           {coin.change}
-                        </span>
-                        <span className="text-[10px] text-white/40 uppercase">24h</span>
+                         </span>
+                         <span className="text-[10px] text-white/40 uppercase">24h</span>
                       </div>
                     </div>
                     
-                    <button className="px-5 py-2.5 bg-[#7135D9]/20 text-[#a882e8] hover:bg-[#7135D9] hover:text-white rounded-lg text-sm font-bold transition-all duration-300 border border-[#7135D9]/30">
+                    <button className="px-4 md:px-5 py-2 md:py-2.5 bg-[#7135D9]/20 text-[#a882e8] hover:bg-[#7135D9] hover:text-white rounded-lg text-xs md:text-sm font-bold transition-all duration-300 border border-[#7135D9]/30">
                       Buy
                     </button>
                   </div>

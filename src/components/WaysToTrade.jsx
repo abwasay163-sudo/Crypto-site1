@@ -75,10 +75,10 @@ const TradeCards = [
 export const WaysToTrade = () => {
   return (
     <section
-      className="w-full py-16 lg:py-24"
+      className="w-full py-12 md:py-16 lg:py-24"
       style={{ background: "#080D1B" }}
     >
-      <div className="max-w-[1240px] mx-auto px-6">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
 
         {/* Header Row — Centered */}
         <motion.div
@@ -86,14 +86,14 @@ export const WaysToTrade = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="flex flex-col items-center text-center gap-8 mb-16"
+          className="flex flex-col items-center text-center gap-6 md:gap-8 mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight font-outfit max-w-[800px]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white leading-tight font-outfit max-w-[800px] px-2">
             One platform, multiple ways to trade
           </h2>
           <a
             href="#"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[16px] font-bold text-white transition-all duration-300 font-outfit whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-[14px] scroll-m-0 sm:text-[16px] font-bold text-white transition-all duration-300 font-outfit whitespace-nowrap"
             style={{
               background: "linear-gradient(135deg, #1a4fd4 0%, #1069ff 100%)",
               boxShadow: "0 0 0 0 rgba(16,105,255,0)",
@@ -115,7 +115,7 @@ export const WaysToTrade = () => {
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="mx-auto flex h-auto lg:h-[560px] w-full max-w-[1240px] flex-col lg:flex-row items-center justify-center gap-[10px] sm:gap-[16px] lg:gap-[18px]">
+        <div className="mx-auto flex h-auto lg:h-[560px] w-full max-w-[1240px] flex-col lg:flex-row items-center justify-center gap-[16px] lg:gap-[18px]">
           {TradeCards.map((card, index) => (
             <motion.div
               key={card.id}
@@ -126,11 +126,11 @@ export const WaysToTrade = () => {
                 ease: "easeOut" 
               }}
               whileHover={{ 
-                scale: 1.1, 
+                scale: 1.05, 
                 zIndex: 50,
               }}
               viewport={{ once: true }}
-              className="group relative flex h-[520px] w-full flex-1 cursor-pointer flex-col items-start justify-between overflow-hidden p-4 md:p-8 rounded-[16px] transition-all duration-100 ease-out"
+              className="group relative flex h-[400px] sm:h-[480px] lg:h-[520px] w-full flex-1 cursor-pointer flex-col items-start justify-between overflow-hidden p-6 md:p-8 rounded-[16px] transition-all duration-100 ease-out"
               style={{
                 background: card.id === 3 
                   ? "linear-gradient(rgba(0, 0, 0, 0) 55.2%, rgb(0, 0, 0) 86.03%), linear-gradient(243deg, #d8dde8 4.93%, #1a2233 152.94%)"
@@ -141,10 +141,10 @@ export const WaysToTrade = () => {
             >
               {/* Top Row: Icon and Pill */}
               <div className="flex z-20 w-full flex-row items-start justify-between">
-                <div className="h-[26px] w-[26px] drop-shadow-xl">
+                <div className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] drop-shadow-xl">
                   {card.icon}
                 </div>
-                <span className="inline-flex items-center rounded-full px-3 py-1 text-[12px] font-normal bg-[#212121] text-[rgba(255,255,255,0.43)] border border-white/5">
+                <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] sm:text-[12px] font-normal bg-[#212121] text-[rgba(255,255,255,0.43)] border border-white/5">
                   {card.pill}
                 </span>
               </div>
@@ -156,25 +156,25 @@ export const WaysToTrade = () => {
               <div className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-full w-auto max-w-none absolute z-0 object-center block overflow-hidden">
                 <img 
                   alt={card.title} 
-                  className="object-fill h-full w-auto max-w-none transition-transform duration-200 ease-out" 
+                  className="object-contain h-full w-auto max-w-none transition-transform duration-200 ease-out" 
                   loading="lazy" 
                   src={card.image}
                 />
               </div>
 
               {/* Content Row (Bottom) - On top of overlay */}
-              <div className="flex z-20 flex-col items-start gap-4 w-full relative">
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-[28px] font-bold text-white font-outfit leading-tight">
+              <div className="flex z-20 flex-col items-start gap-3 sm:gap-4 w-full relative">
+                <div className="flex flex-col gap-0.5 sm:gap-1">
+                  <h3 className="text-[22px] sm:text-[28px] font-bold text-white font-outfit leading-tight">
                     {card.title}
                   </h3>
-                  <p className="text-[rgba(255,255,255,0.6)] text-[15px] font-medium font-outfit leading-relaxed max-w-[260px]">
+                  <p className="text-[rgba(255,255,255,0.6)] text-[13px] sm:text-[15px] font-medium font-outfit leading-relaxed max-w-[90%] sm:max-w-[260px]">
                     {card.description}
                   </p>
                 </div>
 
                 <button
-                  className={`w-max py-2.5 px-7 rounded-full text-[14px] font-bold font-outfit transition-all duration-100 ${
+                  className={`w-max py-2 px-5 sm:py-2.5 sm:px-7 rounded-full text-[13px] sm:text-[14px] font-bold font-outfit transition-all duration-100 ${
                     card.isPrimary 
                     ? "bg-[#7135D9] text-white border-none shadow-[0_4px_15px_rgba(113,53,217,0.3)] group-hover:bg-[#5b2ab3] group-hover:shadow-[0_4px_25px_rgba(113,53,217,0.5)]" 
                     : "bg-[rgba(255,255,255,0.12)] text-white border border-white/10 group-hover:bg-[rgba(255,255,255,0.2)] group-hover:border-white/20"

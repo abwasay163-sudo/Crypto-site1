@@ -53,18 +53,18 @@ export const Pricing = () => {
   ]
 
   return (
-    <section className="relative py-24 bg-[#080D1B] overflow-hidden" id="pricing">
+    <section className="relative py-16 md:py-24 bg-[#080D1B] overflow-hidden" id="pricing">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-primary/10 rounded-full blur-[100px] md:blur-[120px] pointer-events-none z-0" />
       
-      <div className="relative z-10 container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-20">
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-20">
           <motion.h2 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold font-outfit mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold font-outfit mb-4 md:mb-6 leading-tight"
           >
             Simple, <span className="text-gradient">Transparent</span> Pricing
           </motion.h2>
@@ -73,13 +73,13 @@ export const Pricing = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-lg text-white/50"
+            className="text-base md:text-lg text-white/50 px-2"
           >
             Choose the plan that fits your growth ambitions. No hidden fees, ever.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto items-stretch">
           {tiers.map((tier, idx) => (
             <PricingCard key={idx} {...tier} />
           ))}

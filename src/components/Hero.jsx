@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-[100vh] min-h-[700px] overflow-hidden flex items-center">
+    <section className="relative w-full h-[100vh] min-h-[600px] md:min-h-[700px] overflow-hidden flex items-center">
       {/* Video Background */}
       <video
         autoPlay
@@ -18,18 +18,18 @@ export const Hero = () => {
       </video>
 
       {/* Subtle Gradient Overlay only at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 bg-gradient-to-t from-[#050505] to-transparent z-10" />
 
       {/* Content Container */}
-      <div className="relative z-20 container mx-auto px-6 md:px-12 lg:px-24">
-        <div className="max-w-2xl">
+      <div className="relative z-20 container mx-auto px-4 md:px-12 lg:px-24">
+        <div className="max-w-2xl mt-16 md:mt-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-outfit font-bold text-white leading-[1.05] tracking-tight mb-8">
-              Unlock growth <br />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit font-bold text-white leading-[1.1] md:leading-[1.05] tracking-tight mb-6 md:mb-8">
+              Unlock growth <br className="hidden sm:block" />
               <span className="text-white/50">with every payment</span>
             </h1>
           </motion.div>
@@ -38,7 +38,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-white/70 max-w-lg mb-12 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-white/70 max-w-lg mb-8 md:mb-12 leading-relaxed"
           >
             The ultimate Web3 gateway for institutional-grade growth. 
             Seamlessly bridge traditional finance with the future of digital assets.
@@ -48,12 +48,12 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
           >
             <Button 
                 variant="gradient" 
                 size="lg" 
-                className="rounded-full shadow-[0_0_20px_rgba(255,100,50,0.3)] group"
+                className="rounded-full shadow-[0_0_20px_rgba(255,100,50,0.3)] group w-full sm:w-auto"
             >
               Get started 
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -61,7 +61,7 @@ export const Hero = () => {
             <Button 
                 variant="glass" 
                 size="lg" 
-                className="rounded-full px-8"
+                className="rounded-full px-8 w-full sm:w-auto"
             >
               Talk to a human
             </Button>
